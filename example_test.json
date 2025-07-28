@@ -1,0 +1,10 @@
+{
+  "name": "Modulo contatto demo",
+  "url": "https://example.com/contact",
+  "variables": {
+    "nome": "Mario",
+    "email": "mario@example.com",
+    "messaggio": "Ciao, questo è un test"
+  },
+  "description": "Click on the Contact link. Fill the nome field with {{nome}}. Fill the email field with {{email}}. Fill the messaggio textarea with {{messaggio}}. Click the submit button. Verify that confirmation message contains 'Grazie'."
+}
