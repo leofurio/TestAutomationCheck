@@ -46,3 +46,7 @@ Le variabili racchiuse tra `{{` e `}}` vengono sostituite con i valori specifica
 ## Limitazioni
 
 Il parser compreso in `run_test.py` scompone il testo in frasi e riconosce alcune azioni in base al verbo iniziale ("click", "fill", "select", "expect", "go", "wait"). Il target e l'eventuale valore vengono estratti con espressioni regolari. Se una frase non corrisponde a nessuna regola viene riportato un passaggio TODO. È comunque possibile estendere le regole personalizzando `parse_step` e `execute_step`.
+
+## Screenshot in caso di errore
+
+Se durante l'esecuzione di un test avviene un errore, il programma cattura uno screenshot della pagina corrente e lo salva nel file `error_step_<numero>.png` nella cartella da cui viene eseguito lo script.
