@@ -167,8 +167,16 @@ def run_test(test_config: dict):
         browser = p.chromium.launch()
         page = browser.new_page()
         page.goto(url)
-        for step in steps:
-            execute_step(step, page)
+        for idx, step in enumerate(steps, start=1):
+            try:
+                execute_step(step, page)
+            except Exception as e:
+                print(f"Error executing step {idx}: {e}")
+                screenshot_path = f"error_step_{idx}.png"
+                page.screenshot(path=screenshot_path)
+                print(f"Screenshot saved to {screenshot_path}")
+                browser.close()
+                raise
         browser.close()
 
 
