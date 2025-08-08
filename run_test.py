@@ -145,7 +145,11 @@ def execute_step(step: dict, page):
         return
 
     if action == "expect":
-        expect(page.locator('body')).to_contain_text(step["value"])
+        target = step.get("target")
+        if target:
+            expect(page.get_by_text(target)).to_contain_text(step["value"])
+        else:
+            expect(page.locator('body')).to_contain_text(step["value"])
         return
 
     if action == "goto":
